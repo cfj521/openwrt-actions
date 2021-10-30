@@ -26,25 +26,25 @@ env:
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   model: R3P
-  CONFIG_FILE: MakeMenu.R3P.config
+  CONFIG_FILE: r3p.config
   DIY_P1_SH: diy-part1.sh
-  DIY_P2_SH: diy-x86-part2.sh
+  DIY_P2_SH: diy2.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
-  UPLOAD_WETRANSFER: true
+  UPLOAD_WETRANSFER: false
   UPLOAD_RELEASE: false
   TZ: Asia/Shanghai
-  UPLOAD_ZZNAS: true
-  ftp_username: ${{ secrets.FTP_USERNAME }}
-  ftp_psw: ${{ secrets.FTP_PSW }}
-  ftp_ip: ${{ secrets.FTP_IP }}
-  TargetPath: OpenwrtImgs/mt7621/R3P
-  upload_file_1: openwrt-ramips-mt7621-xiaomi_mi-router-3-pro-initramfs-kernel.bin
-  upload_file_2: openwrt-ramips-mt7621-xiaomi_mi-router-3-pro-squashfs-factory.bin
-  upload_file_3: openwrt-ramips-mt7621-xiaomi_mi-router-3-pro-squashfs-sysupgrade.bin
-  upload_file_4: sha256sums
-  whkey: ${{ secrets.WEBHOOK }}
+#   UPLOAD_ZZNAS: true
+#   ftp_username: ${{ secrets.FTP_USERNAME }}
+#   ftp_psw: ${{ secrets.FTP_PSW }}
+#   ftp_ip: ${{ secrets.FTP_IP }}
+#   TargetPath: OpenwrtImgs/mt7621/R3P
+#   upload_file_1: openwrt-ramips-mt7621-xiaomi_mi-router-3-pro-initramfs-kernel.bin
+#   upload_file_2: openwrt-ramips-mt7621-xiaomi_mi-router-3-pro-squashfs-factory.bin
+#   upload_file_3: openwrt-ramips-mt7621-xiaomi_mi-router-3-pro-squashfs-sysupgrade.bin
+#   upload_file_4: sha256sums
+#   whkey: ${{ secrets.WEBHOOK }}
 
 jobs:
   build:
@@ -114,13 +114,7 @@ jobs:
     - name: Compile the firmware
       id: compile
       run: |
-        send_dingding="curl -s \"https://oapi.dingtalk.com/robot/send?access_token=${whkey}\" -H 'Content-Type: application/json' -d '{\"msgtype\": \"markdown\",\"markdown\": {\"title\":"
-        send_content0="【${model}】正在启动编译！请稍后大约4小时..."
-        markdown_splitline="\n\n---\n\n"
-        GITHUB_WORKFLOW_URL=https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
-        nowtime=`date "+%Y-%m-%d %H:%M:%S"`
-        eval "$send_dingding \"${send_content0}\",\"text\":\"${nowtime} $markdown_splitline #### <font color=#6A65FF>${send_content0}</font>\n\n[点此链接查看](${GITHUB_WORKFLOW_URL})\"}}'"
-        
+      
         cd openwrt
         echo -e "$(nproc) thread compile"
         make -j$(nproc) || make -j1 || make -j1 V=s
@@ -178,21 +172,6 @@ jobs:
       id: zz-nas
       if: steps.organize.outputs.status == 'success' && env.UPLOAD_ZZNAS == 'true' && !cancelled()
       run: |
-        send_dingding="curl -s \"https://oapi.dingtalk.com/robot/send?access_token=${whkey}\" -H 'Content-Type: application/json' -d '{\"msgtype\": \"markdown\",\"markdown\": {\"title\":"
-        send_content1="【${model}】编译成功！正在上传固件到NAS..."
-        send_content2="【${model}】编译成功！固件成功上传到NAS。"
-        markdown_splitline="\n\n---\n\n"
-        GITHUB_WORKFLOW_URL=https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
-        nowtime=`date "+%Y-%m-%d %H:%M:%S"`
-        eval "$send_dingding \"${send_content1}\",\"text\":\"${nowtime} $markdown_splitline #### <font color=#6A65FF>${send_content1}</font>\n\n[点此链接查看](${GITHUB_WORKFLOW_URL})\"}}'"
-        
-        cd openwrt/bin/targets/*/*
-        echo $ftp_psw > /tmp/rsync.psw && chmod 600 /tmp/rsync.psw
-        rsync -avrzP $upload_file_1 $upload_file_2 $upload_file_3 $upload_file_4 $ftp_username@$ftp_ip::$TargetPath/$(date +"%Y.%m.%d-%H%M")/ --password-file=/tmp/rsync.psw
-        echo "::warning file=zz-nas.com::All Released Files Uploaded to ZZ-NAS"
-        
-        nowtime=`date "+%Y-%m-%d %H:%M:%S"`
-        eval "$send_dingding \"${send_content2}\",\"text\":\"${nowtime} $markdown_splitline #### <font color=#92D050>${send_content2}</font>\n\n[点此链接查看](${GITHUB_WORKFLOW_URL})\"}}'"
 
     - name: Generate release tag
       id: tag
