@@ -18,8 +18,8 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
-  schedule:
-    - cron: 0 14 * * 5
+#   schedule:
+#     - cron: 0 14 * * 0
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
@@ -35,16 +35,6 @@ env:
   UPLOAD_WETRANSFER: false
   UPLOAD_RELEASE: false
   TZ: Asia/Shanghai
-#   UPLOAD_ZZNAS: true
-#   ftp_username: ${{ secrets.FTP_USERNAME }}
-#   ftp_psw: ${{ secrets.FTP_PSW }}
-#   ftp_ip: ${{ secrets.FTP_IP }}
-#   TargetPath: OpenwrtImgs/mt7621/R3P
-#   upload_file_1: openwrt-ramips-mt7621-xiaomi_mi-router-3-pro-initramfs-kernel.bin
-#   upload_file_2: openwrt-ramips-mt7621-xiaomi_mi-router-3-pro-squashfs-factory.bin
-#   upload_file_3: openwrt-ramips-mt7621-xiaomi_mi-router-3-pro-squashfs-sysupgrade.bin
-#   upload_file_4: sha256sums
-#   whkey: ${{ secrets.WEBHOOK }}
 
 jobs:
   build:
