@@ -96,10 +96,6 @@ git clone https://github.com/rufengsuixing/luci-app-onliner.git package/collecte
 # # rm -rf ./feeds/helloworld/tcping
 # # rm -rf ./feeds/helloworld/xray-core
 
-
-# Add OpenClash
-git clone -b master https://github.com/vernesong/OpenClash.git package/collected/OpenClash
-
 # # Add ADGuardHome
 # # git clone https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
 # svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-adguardhome ./package/collected/luci-app-adguardhome
