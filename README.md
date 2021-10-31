@@ -11,7 +11,7 @@
   
 - 2.工具：iperf3、unzip、ttyd终端、fdisk、onliner
   
-- 3.网络：mt_wifi（针对MTK7615E无线芯片优化）和Mesh功能、upd speedup
+- 3.网络：mt_wifi（针对MTK7615无线芯片优化）和Mesh功能、upd speedup
 
 ---------
 
