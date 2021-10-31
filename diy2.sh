@@ -10,6 +10,8 @@
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
 
+# Modify default IP
+#sed -i 's/192.168.1.1/192.168.89.254/g' package/base-files/files/bin/config_generate
 
 # 修改版本号-webui
 modelmark=R`TZ=UTC-8 date +%Y-%m-%d -d +"0"days`' by cfj521'
