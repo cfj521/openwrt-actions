@@ -7,11 +7,11 @@
 
 还包含以下组件：
 
-- 1.服务：ssr+、openclash、mwan3、usb打印服务、adByby+adGuardhome、IPsec vpn、zerotier、KMS、SQM Qos
+- 1.服务：`ssr+、openclash、mwan3、usb打印服务、adByby+adGuardhome、IPsec vpn、zerotier、KMS、SQM Qos`
   
-- 2.工具：iperf3、unzip、ttyd终端、fdisk、onliner
+- 2.工具：`iperf3、unzip、ttyd终端、fdisk、onliner`
   
-- 3.网络：mt_wifi（针对MTK7615无线芯片优化）和Mesh功能、upd speedup
+- 3.网络：`mt_wifi（针对MTK7615无线芯片优化）和Mesh功能、upd speedup`
 
 ---------
 
