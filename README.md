@@ -2,7 +2,7 @@
 
 除了lean默认的组件:
 
-- 上网时间控制、自动重启、ddns、文件传输、宽带监控、turbo acc、网易云音乐解锁、uPnP、vsftpd、网络唤醒、vlmcsd
+- `上网时间控制、自动重启、ddns、文件传输、宽带监控、turbo acc、网易云音乐解锁、uPnP、vsftpd、网络唤醒、vlmcsd`
 
 
 还包含以下组件：
