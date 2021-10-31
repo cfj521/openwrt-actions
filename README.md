@@ -7,7 +7,7 @@
 
 还包含以下组件：
 
-- 1.服务：`ssr+、openclash、mwan3、usb打印服务、adByby+adGuardhome、IPsec vpn、zerotier、KMS、SQM Qos\upd speedup`
+- 1.服务：`ssr+、openclash、mwan3、usb打印服务、adByby+adGuardhome、IPsec vpn、zerotier、KMS、SQM Qos/upd speedup`
   
 - 2.工具：`iperf3、unzip、ttyd终端、fdisk、onliner`
   
