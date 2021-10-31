@@ -2,16 +2,16 @@
 
 除了lean默认的组件:
 
-- 上网时间控制、自动重启、ddns、文件传输、宽带监控、释放内存、turbo acc、网易云音乐解锁、uPnP、vsftpd、网络唤醒、vlmcsd
+- 上网时间控制、自动重启、ddns、文件传输、宽带监控、turbo acc、网易云音乐解锁、uPnP、vsftpd、网络唤醒、vlmcsd
 
 
 还包含以下组件：
 
-- 1.服务：ssr+、openclash、mwan3、usb打印服务、adByby+、IPsec vpn、zerotier
+- 1.服务：ssr+、openclash、mwan3、usb打印服务、adByby+adGuardhome、IPsec vpn、zerotier、KMS、SQM Qos
   
 - 2.工具：iperf3、unzip、ttyd终端、fdisk、onliner
   
-- 3.网络：mt_wifi（针对MTK7615E无线芯片优化）、upd speedup、youtube下载
+- 3.网络：mt_wifi（针对MTK7615E无线芯片优化）和Mesh功能、upd speedup
 
 ---------
 
